@@ -50,3 +50,7 @@ The test protocol is currently being determined but will include:
 * Teardown pictures
 
 Measurements will be done using an [Atorch DL24-P](http://en.atorch.cn/ProDetail.aspx?ProID=13), [FNIRSI FNB58](https://www.fnirsi.com/products/fnb58), [Geti PM001](https://www.geti.eu/en/products/energy/power-consumption-meters/digital-energy-meter-geti-pm001), [Kaiweets KTI-W01](https://kaiweets.com/products/kti-w01-handheld-thermal-camera), [Hanmatek DOS1102](https://www.aliexpress.com/item/4000768225718.html) and [OWON XDM1241](https://www.owon.com.hk/products_owon_4_1%7C2_digits_xdm1000_series_bench-type_digital_multimeter). Not the most expensive or best test equipment, but will do fine for this project.
+
+## Atribution
+
+Icon by [Payungkead](https://www.freepik.com/icon/usb_1664704)
