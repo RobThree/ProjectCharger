@@ -10,7 +10,7 @@ I have ordered 12 (ultra) cheap USB chargers from AliExpress. I will be testing 
 
 ## Status
 
-This project was started on 2025-03-06 and will take some time to complete. Currently I am still in the setup phase. I have ordered and received 12 chargers and have taken some 📷 [pictures](https://github.com/RobThree/ProjectCharger/tree/main/images). Basic data has been entered in a 📝 [Google sheet](https://docs.google.com/spreadsheets/d/1MLatioRcDbH1atz-dB_jMyGtM_djYzLRvWk6to6tpT4/edit?usp=sharing) which will also be used to record measurements etc. during this project.
+This project was started on 2025-03-06 and will take some time to complete. Currently I am still in the setup phase so this project is 🚧 under construction 🚧. I have ordered and received 12 chargers and have taken some 📷 [pictures](https://github.com/RobThree/ProjectCharger/tree/main/images). Basic data has been entered in a 📝 [Google sheet](https://docs.google.com/spreadsheets/d/1MLatioRcDbH1atz-dB_jMyGtM_djYzLRvWk6to6tpT4/edit?usp=sharing) which will also be used to record measurements etc. during this project.
 
 ## Chargers
 
