@@ -2,7 +2,7 @@
 
 ## Description
 
-I have ordered 12 (ultra) cheap USB chargers from AliExpress. I will be testing these to see if they:
+I ordered 21 (ultra) cheap USB chargers from AliExpress and will test them to see if they:
 
 * can provide the power they claim to be able to deliver
 * are safe to use (will they catch on fire 🔥 or even explode 💥)?
@@ -10,7 +10,7 @@ I have ordered 12 (ultra) cheap USB chargers from AliExpress. I will be testing 
 
 ## Status
 
-This project was started on 2025-03-06 and will take some time to complete. Currently I am still in the setup phase so this project is 🚧 under construction 🚧. I have ordered and received 12 chargers and have taken some 📷 [pictures](https://github.com/RobThree/ProjectCharger/tree/main/images). Basic data has been entered in a 📝 [Google sheet](https://docs.google.com/spreadsheets/d/1MLatioRcDbH1atz-dB_jMyGtM_djYzLRvWk6to6tpT4/edit?usp=sharing) which will also be used to record measurements etc. during this project.
+This project was started on 2025-03-06 and will take some time to complete. Currently the project is in the setup phase so this project is still 🚧 under construction 🚧. I have ordered and received 21 chargers and have taken some 📷 [pictures](https://github.com/RobThree/ProjectCharger/tree/main/images). Basic data has been entered in a 📝 [Google sheet](https://docs.google.com/spreadsheets/d/1MLatioRcDbH1atz-dB_jMyGtM_djYzLRvWk6to6tpT4/edit?usp=sharing) which will also be used to record measurements etc. during this project.
 
 ## Chargers
 
@@ -28,8 +28,18 @@ The following chargers are in this test:
 10. [Maerknon KeKe-F002](https://www.aliexpress.com/item/1005008273390175.html) (€3.30 / $3.05)*
 11. [WALKESEN AR-896](https://www.aliexpress.com/item/1005008390068513.html) (€3.35 / $3.09)*
 12. [Maerknon NC-22](https://www.aliexpress.com/item/1005007368774221.html) (€2.51 / $2.32)
+13. [Henruisi TRG-180](https://www.aliexpress.com/item/1005007713351327.html)** (€1.99 / $1.84)
+14. [olaf {nomode}](https://www.aliexpress.com/item/1005005447292671.html)** (€1.99 / $1.84)
+15. [Maerknon  {nomode}](https://www.aliexpress.com/item/1005006294291283.html)** (€1.99 / $1.84)
+16. [FANBEDA BK329-4A4C](https://www.aliexpress.com/item/1005007798517528.html)** (€4.39 / $4.05)
+17. [{noname} ETA-U90 EWE](https://www.aliexpress.com/item/1005006603699489.html)** (€1.19 / $1.10)
+18. [{noname} {nomodel}](https://www.aliexpress.com/item/1005006469372442.html)** (€1.59 / $1.47)
+19. [GUSEYEE HC-023](https://www.aliexpress.com/item/1005007370796821.html)** (€1.59 / $1.47)
+20. [GUSEYEE BK319](https://www.aliexpress.com/item/1005007487685097.html)** (€3.99 / $3.68)
+21. [{noname} 62-CCA](https://www.aliexpress.com/item/1005005586923234.html)** (€1.59 / $1.47)
 
-<sup>* Ordered in US version by (my) mistake. Other than the plug standard / format there shouldn't be any difference. These chargers will be tested with a simple adapter plug.</sup>
+<sup>* Ordered in US version by (my) mistake. Other than the plug standard / format there shouldn't be any difference. These chargers will be tested with a simple adapter plug.<br>
+** Name / model to be confirmed upon delivery</sup>
 
 ## Test protocol
 
