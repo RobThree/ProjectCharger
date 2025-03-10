@@ -41,6 +41,13 @@ The following chargers are in this test:
 <sup>* Ordered in US version by (my) mistake. Other than the plug standard / format there shouldn't be any difference. These chargers will be tested with a simple adapter plug.<br>
 ** Name / model to be confirmed upon delivery</sup>
 
+As a 'control' group (to prove the USB cables are good, the USB tester detects all protocols etc.) we have the following "expensive" or "brand" chargers:
+
+1. [UGREEN Nexode 100W USB C GaN Charger CD226](https://www.aliexpress.com/item/1005002529458406.html) (€54.99 / $59.55)
+2. [UGREEN Nexode 200W USB C GaN Charger CD271](https://www.aliexpress.com/item/1005008473171077.html) (€117.39 / $127.11)
+3. [[Xiaomi Power Bank 3 Pro PLM07ZM]()](https://www.aliexpress.com/item/1005007232373605.html) (€45.39 / $49.15)
+4. [Shenzhen GOOD-SHE Technology Co., Ltd. GS-W65A0927](http://www.good-she.com/web/index.php/product/index/g/e/id/278.html) (€25.00 / $27.07)
+
 ## Test protocol
 
 The test protocol is currently being determined but will include:
