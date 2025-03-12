@@ -1,4 +1,4 @@
-*Testing and comparing 12 cheap USB chargers*
+*Testing and comparing 21 cheap USB chargers*
 
 ## Description
 
