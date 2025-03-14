@@ -40,6 +40,9 @@
       }
       label {
         cursor: pointer;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
       }
     </style>
   </head>
@@ -48,8 +51,10 @@
       <h1 id="title">Measurements Viewer</h1>
       <div class="controls">
         <div class="checkbox-group">
-          <input type="checkbox" id="decimateData" checked />
-          <label for="decimateData">🚀 Decimate data for better performance</label>
+          <input type="checkbox" id="downsampleData" checked />
+          <label for="downsampleData" title="Downsampling reduces the number of data points to improve performance.">
+            🚀 Downsample data
+          </label>
         </div>
         <div class="checkbox-group">
           <input type="checkbox" id="showCurrent" checked />
@@ -84,11 +89,11 @@
         return null;
       }
 
-      function decimateRecords(records, targetSize = 10000) {
+      function downsampleRecords(records, targetSize = 10000) {
         const { times, current, voltage } = records;
         const length = times.length;
 
-        if (length <= targetSize) return records; // No need to decimate
+        if (length <= targetSize) return records;
 
         const factor = length / targetSize;
         const newRecords = { times: [], current: [], voltage: [] };
@@ -149,7 +154,7 @@
             setTimeout(() => {
               resolve({
                 original: records,
-                decimated: decimateRecords(records),
+                downsampled: downsampleRecords(records),
               });
             }, 10);
           }, 10);
@@ -205,7 +210,7 @@
             y: -0.05,
             xanchor: "right",
             yanchor: "top",
-            orientation: "h"
+            orientation: "h",
           },
           annotations: chartconfig.annotations,
         };
@@ -228,14 +233,15 @@
       function updateChart() {
         if (!gchartdata) return;
 
-        const shouldDecimate = document.getElementById("decimateData").checked;
+        const shouldDownsample =
+          document.getElementById("downsampleData").checked;
         const showCurrent = document.getElementById("showCurrent").checked;
         const showVoltage = document.getElementById("showVoltage").checked;
 
         status.textContent = "⏳ Updating chart...";
         setTimeout(() => {
           createChart(
-            shouldDecimate ? gchartdata.decimated : gchartdata.original,
+            shouldDownsample ? gchartdata.downsampled : gchartdata.original,
             gchartconfig
           );
           status.textContent = "📊 Chart updated";
@@ -278,7 +284,7 @@
 
       // Handle control changes
       document
-        .getElementById("decimateData")
+        .getElementById("downsampleData")
         .addEventListener("change", function () {
           if (gchartdata) {
             updateChart();
