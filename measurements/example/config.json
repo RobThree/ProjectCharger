@@ -1,0 +1,35 @@
+{
+  "file": "example.csv",
+  "title": "Example measurements",
+  "testdate": "2025-03-14",
+  "chartconfig": {
+    "annotations": [
+      {
+        "x": 1741910492340,
+        "y": 1.2,
+        "xref": "x",
+        "yref": "y2",
+        "text": "Important Event 1",
+        "showarrow": true,
+        "arrowhead": 2,
+        "ax": -30,
+        "ay": -40,
+        "font": { "size": 12, "color": "black" },
+        "bgcolor": "yellow"
+      },
+      {
+        "x": 1741910696630,
+        "y": 2.5,
+        "xref": "x",
+        "yref": "y2",
+        "text": "Important Event 2",
+        "showarrow": true,
+        "arrowhead": 2,
+        "ax": -30,
+        "ay": -40,
+        "font": { "size": 12, "color": "black" },
+        "bgcolor": "yellow"
+      }
+    ]
+  }
+}

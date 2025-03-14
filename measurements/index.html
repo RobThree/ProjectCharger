@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Measurementsviewer</title>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h1 {
+        color: #333;
+      }
+      #chart {
+        width: 100%;
+        height: 600px;
+        margin-top: 20px;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .description {
+        margin: 20px 0;
+        color: #666;
+      }
+      .controls {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin: 20px 0;
+      }
+      .status {
+        font-style: italic;
+        color: #666;
+      }
+      .checkbox-group {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="title">Measurements Viewer</h1>
+      <div class="controls">
+        <div class="checkbox-group">
+          <input type="checkbox" id="decimateData" checked />
+          <label for="decimateData">Decimate data for better performance</label>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="showCurrent" checked />
+          <label for="showCurrent">Show Current</label>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="showVoltage" checked />
+          <label for="showVoltage">Show Voltage</label>
+        </div>
+        <span class="status" id="status">Ready</span>
+      </div>
+
+      <div id="chart"></div>
+    </div>
+
+    <script>
+      function parseTimeString(timeStr, baseDate) {
+        const timeParts = timeStr.split(":");
+        if (timeParts.length >= 4) {
+          const secondsParts = timeParts[3].split(".");
+          const ms =
+            (parseInt(timeParts[0]) || 0) * 86400000 + // days
+            (parseInt(timeParts[1]) || 0) * 3600000 + // hours
+            (parseInt(timeParts[2]) || 0) * 60000 + // minutes
+            (parseInt(secondsParts[0]) || 0) * 1000 + // seconds
+            (secondsParts.length > 1 // milliseconds
+              ? parseInt(secondsParts[1].substring(0, 3)) || 0
+              : 0);
+
+          return new Date(baseDate.getTime() + ms);
+        }
+        return null;
+      }
+
+      function decimateRecords(records, targetSize = 10000) {
+        const { times, current, voltage } = records;
+        const length = times.length;
+
+        if (length <= targetSize) return records; // No need to decimate
+
+        const factor = length / targetSize;
+        const newRecords = { times: [], current: [], voltage: [] };
+
+        for (let i = 0; i < targetSize; i++) {
+          const start = Math.floor(i * factor);
+          const end = Math.min(Math.floor((i + 1) * factor), length - 1);
+
+          // Slice the data for each key
+          const timeSlice = times.slice(start, end);
+          const currentSlice = current.slice(start, end);
+          const voltageSlice = voltage.slice(start, end);
+
+          // Compute the midpoint timestamp
+          const avgTime = new Date(
+            timeSlice.reduce((sum, date) => sum + date.getTime(), 0) /
+              timeSlice.length
+          );
+
+          // Compute the averages for numerical data
+          const avgCurrent =
+            currentSlice.reduce((sum, val) => sum + val, 0) /
+            currentSlice.length;
+          const avgVoltage =
+            voltageSlice.reduce((sum, val) => sum + val, 0) /
+            voltageSlice.length;
+
+          // Store new values
+          newRecords.times.push(avgTime);
+          newRecords.current.push(avgCurrent);
+          newRecords.voltage.push(avgVoltage);
+        }
+
+        return newRecords;
+      }
+
+      // Process the CSV data
+      function processData(csvString, baseDate) {
+        status.textContent = "Processing data...";
+
+        return new Promise((resolve) => {
+          // Use setTimeout to allow UI to update
+          setTimeout(() => {
+            const lines = csvString.split("\n");
+            const records = {
+              times: [],
+              current: [],
+              voltage: [],
+            };
+
+            for (let i = 1; i < lines.length; i++) {
+              const values = lines[i].split(";");
+              records.times.push(parseTimeString(values[0], baseDate));
+              records.current.push(parseFloat(values[1]));
+              records.voltage.push(parseFloat(values[2]));
+            }
+            status.textContent = `Parsed ${records.times.length} data points`;
+            setTimeout(() => {
+              resolve({
+                original: records,
+                decimated: decimateRecords(records),
+              });
+            }, 10);
+          }, 10);
+        });
+      }
+
+      // Create the chart with Plotly
+      function createChart(data, chartconfig) {
+        const showCurrent = document.getElementById("showCurrent").checked;
+        const showVoltage = document.getElementById("showVoltage").checked;
+
+        const traces = [];
+
+        if (showCurrent) {
+          traces.push({
+            x: data.times,
+            y: data.current,
+            name: "VBusCurrent (A)",
+            line: { width: 1 },
+            yaxis: "y",
+          });
+        }
+
+        if (showVoltage) {
+          traces.push({
+            x: data.times,
+            y: data.voltage,
+            name: "VBusVoltage (V)",
+            line: { width: 1 },
+            yaxis: "y2",
+          });
+        }
+
+        const layout = {
+          title: "Measurements Over Time",
+          xaxis: {
+            title: "Time",
+            type: "date",
+            tickformat: "%H:%M:%S.%L",
+          },
+          yaxis: {
+            title: "Current (A)",
+          },
+          yaxis2: {
+            title: "Voltage (V)",
+            overlaying: "y",
+            side: "right",
+          },
+          hovermode: "closest",
+          showlegend: true,
+          legend: {
+            x: 1,
+            y: -0.05,
+            xanchor: "right",
+            yanchor: "top",
+            orientation: "h"
+          },
+          annotations: chartconfig.annotations,
+        };
+
+        const config = {
+          displaylogo: false,
+          responsive: true,
+          scrollZoom: true,
+          modeBarButtonsToAdd: [
+            "hoverClosestGl2d",
+            "toggleSpikelines",
+            "resetScale2d",
+          ],
+        };
+
+        Plotly.newPlot("chart", traces, layout, config);
+      }
+
+      // Update chart based on current controls
+      function updateChart() {
+        if (!gchartdata) return;
+
+        const shouldDecimate = document.getElementById("decimateData").checked;
+        const showCurrent = document.getElementById("showCurrent").checked;
+        const showVoltage = document.getElementById("showVoltage").checked;
+
+        status.textContent = "Updating chart...";
+        setTimeout(() => {
+          createChart(
+            shouldDecimate ? gchartdata.decimated : gchartdata.original,
+            gchartconfig
+          );
+          status.textContent = "Chart updated";
+        }, 10);
+      }
+
+      function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+      }
+
+      async function fetchFile(path) {
+        try {
+          var path = new URL(path, window.location.href).href;
+          status.textContent = `Loading file ${path}...`;
+          const response = await fetch(path);
+          if (!response.ok) {
+            throw new Error(`HTTP error (status: ${response.status})`);
+          }
+          status.textContent = "File loaded successfully";
+          return await response;
+        } catch (error) {
+          throw new Error(`Error loading file: ${error.message}`);
+        }
+      }
+
+      async function fetchCSVFile(path, filename) {
+        const response = await fetchFile(path + `/${filename}`);
+        return await response.text();
+      }
+
+      async function fetchConfigFile(path) {
+        const response = await fetchFile(path + "/config.json");
+        return await response.json();
+      }
+
+      const status = document.getElementById("status");
+      let gchartdata = null;
+      let gchartconfig = null;
+
+      // Handle control changes
+      document
+        .getElementById("decimateData")
+        .addEventListener("change", function () {
+          if (gchartdata) {
+            updateChart();
+          }
+        });
+
+      document
+        .getElementById("showCurrent")
+        .addEventListener("change", function () {
+          if (gchartdata) {
+            updateChart();
+          }
+        });
+
+      document
+        .getElementById("showVoltage")
+        .addEventListener("change", function () {
+          if (gchartdata) {
+            updateChart();
+          }
+        });
+
+      document.addEventListener("DOMContentLoaded", async function () {
+        try {
+          const datapath = getQueryParam("data");
+          const config = await fetchConfigFile(datapath);
+          gchartconfig = config.chartconfig;
+          document.getElementById("title").textContent = config.title;
+          const csvData = await fetchCSVFile(datapath, config.file);
+          processData(csvData, new Date(config.testdate)).then((csvdata) => {
+            gchartdata = csvdata;
+            updateChart();
+          });
+        } catch (error) {
+          status.textContent = `Error processing data: ${error.message}`;
+        }
+      });
+    </script>
+  </body>
+</html>
