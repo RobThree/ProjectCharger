@@ -31,13 +31,15 @@
         margin: 20px 0;
       }
       .status {
-        font-style: italic;
         color: #666;
       }
       .checkbox-group {
         display: flex;
-        gap: 10px;
+        gap: 5px;
         align-items: center;
+      }
+      label {
+        cursor: pointer;
       }
     </style>
   </head>
@@ -47,15 +49,15 @@
       <div class="controls">
         <div class="checkbox-group">
           <input type="checkbox" id="decimateData" checked />
-          <label for="decimateData">Decimate data for better performance</label>
+          <label for="decimateData">🚀 Decimate data for better performance</label>
         </div>
         <div class="checkbox-group">
           <input type="checkbox" id="showCurrent" checked />
-          <label for="showCurrent">Show Current</label>
+          <label for="showCurrent">🔌 Show Current</label>
         </div>
         <div class="checkbox-group">
           <input type="checkbox" id="showVoltage" checked />
-          <label for="showVoltage">Show Voltage</label>
+          <label for="showVoltage">⚡ Show Voltage</label>
         </div>
         <span class="status" id="status">Ready</span>
       </div>
@@ -125,7 +127,7 @@
 
       // Process the CSV data
       function processData(csvString, baseDate) {
-        status.textContent = "Processing data...";
+        status.textContent = "🤔 Processing data...";
 
         return new Promise((resolve) => {
           // Use setTimeout to allow UI to update
@@ -143,7 +145,7 @@
               records.current.push(parseFloat(values[1]));
               records.voltage.push(parseFloat(values[2]));
             }
-            status.textContent = `Parsed ${records.times.length} data points`;
+            status.textContent = `🧮 Parsed ${records.times.length} data points`;
             setTimeout(() => {
               resolve({
                 original: records,
@@ -165,7 +167,7 @@
           traces.push({
             x: data.times,
             y: data.current,
-            name: "VBusCurrent (A)",
+            name: "🔌 VBusCurrent (A)",
             line: { width: 1 },
             yaxis: "y",
           });
@@ -175,7 +177,7 @@
           traces.push({
             x: data.times,
             y: data.voltage,
-            name: "VBusVoltage (V)",
+            name: "⚡ VBusVoltage (V)",
             line: { width: 1 },
             yaxis: "y2",
           });
@@ -230,13 +232,13 @@
         const showCurrent = document.getElementById("showCurrent").checked;
         const showVoltage = document.getElementById("showVoltage").checked;
 
-        status.textContent = "Updating chart...";
+        status.textContent = "⏳ Updating chart...";
         setTimeout(() => {
           createChart(
             shouldDecimate ? gchartdata.decimated : gchartdata.original,
             gchartconfig
           );
-          status.textContent = "Chart updated";
+          status.textContent = "📊 Chart updated";
         }, 10);
       }
 
@@ -248,12 +250,12 @@
       async function fetchFile(path) {
         try {
           var path = new URL(path, window.location.href).href;
-          status.textContent = `Loading file ${path}...`;
+          status.textContent = `📥 Loading file ${path}...`;
           const response = await fetch(path);
           if (!response.ok) {
             throw new Error(`HTTP error (status: ${response.status})`);
           }
-          status.textContent = "File loaded successfully";
+          status.textContent = "🎉 File loaded successfully";
           return await response;
         } catch (error) {
           throw new Error(`Error loading file: ${error.message}`);
@@ -311,7 +313,7 @@
             updateChart();
           });
         } catch (error) {
-          status.textContent = `Error processing data: ${error.message}`;
+          status.textContent = `⚠️ Error processing data: ${error.message}`;
         }
       });
     </script>
