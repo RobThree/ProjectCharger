@@ -28,18 +28,17 @@ The following chargers are in this test:
 10. [Maerknon KeKe-F002](https://www.aliexpress.com/item/1005008273390175.html) (€3.30 / $3.05)*
 11. [WALKESEN AR-896](https://www.aliexpress.com/item/1005008390068513.html) (€3.35 / $3.09)*
 12. [Maerknon NC-22](https://www.aliexpress.com/item/1005007368774221.html) (€2.51 / $2.32)
-13. [Henruisi TRG-180](https://www.aliexpress.com/item/1005007713351327.html)** (€1.99 / $1.84)
-14. [olaf {nomode}](https://www.aliexpress.com/item/1005005447292671.html)** (€1.99 / $1.84)
-15. [Maerknon  {nomode}](https://www.aliexpress.com/item/1005006294291283.html)** (€1.99 / $1.84)
-16. [FANBEDA BK329-4A4C](https://www.aliexpress.com/item/1005007798517528.html)** (€4.39 / $4.05)
-17. [{noname} ETA-U90 EWE](https://www.aliexpress.com/item/1005006603699489.html)** (€1.19 / $1.10)
-18. [{noname} {nomodel}](https://www.aliexpress.com/item/1005006469372442.html)** (€1.59 / $1.47)
-19. [GUSEYEE HC-023](https://www.aliexpress.com/item/1005007370796821.html)** (€1.59 / $1.47)
-20. [GUSEYEE BK319](https://www.aliexpress.com/item/1005007487685097.html)** (€3.99 / $3.68)
-21. [{noname} 62-CCA](https://www.aliexpress.com/item/1005005586923234.html)** (€1.59 / $1.47)
+13. [Henruisi TRG-182](https://www.aliexpress.com/item/1005007713351327.html) (€1.99 / $1.84)
+14. [olaf TRG-157](https://www.aliexpress.com/item/1005005447292671.html) (€1.99 / $1.84)
+15. [Maerknon  61-A2C2](https://www.aliexpress.com/item/1005006294291283.html) (€1.99 / $1.84)
+16. [FANBEDA BK329-4A4C](https://www.aliexpress.com/item/1005007798517528.html) (€4.39 / $4.05)
+17. [{noname} BH-L01](https://www.aliexpress.com/item/1005006603699489.html) (€1.19 / $1.10)
+18. [{noname} A2347 EMC 3621](https://www.aliexpress.com/item/1005006469372442.html) (€1.59 / $1.47)
+19. [GUSEYEE TE-023](https://www.aliexpress.com/item/1005007370796821.html) (€1.59 / $1.47)
+20. [GUSEYEE BK319](https://www.aliexpress.com/item/1005007487685097.html) (€3.99 / $3.68)
+21. [{noname} 62-CCA](https://www.aliexpress.com/item/1005005586923234.html) (€1.59 / $1.47)
 
-<sup>* Ordered in US version by (my) mistake. Other than the plug standard / format there shouldn't be any difference. These chargers will be tested with a simple adapter plug.<br>
-** Name / model to be confirmed upon delivery</sup>
+<sup>* Ordered in US version by (my) mistake. Other than the plug standard / format there shouldn't be any difference. These chargers will be tested with a simple adapter plug.</sup>
 
 As a 'control' group (to prove the USB cables are good, the USB tester detects all protocols etc.) we have the following "expensive" or "brand" chargers:
 
@@ -66,7 +65,7 @@ The test protocol is currently being determined but will include:
     * 📈 Ripple
 * Teardown pictures
 
-Measurements will be done using an [Atorch DL24-P](http://en.atorch.cn/ProDetail.aspx?ProID=13), [FNIRSI FNB58](https://www.fnirsi.com/products/fnb58), [Geti PM001](https://www.geti.eu/en/products/energy/power-consumption-meters/digital-energy-meter-geti-pm001), [Kaiweets KTI-W01](https://kaiweets.com/products/kti-w01-handheld-thermal-camera), [Hanmatek DOS1102](https://www.aliexpress.com/item/4000768225718.html), [OWON XDM1241](https://www.owon.com.hk/products_owon_4_1%7C2_digits_xdm1000_series_bench-type_digital_multimeter) and [Imtex precision scale](https://www.bol.com/nl/nl/p/imtex-precisie-digitale-weegschaal-500-gram-x-001-gram/9300000074911968/). Not the most expensive or best test equipment, but will do fine for this project.
+Measurements will be done using an [Atorch DL24-P](http://en.atorch.cn/ProDetail.aspx?ProID=13), [FNIRSI FNB58](https://www.fnirsi.com/products/fnb58), [Geti PM001](https://www.geti.eu/en/products/energy/power-consumption-meters/digital-energy-meter-geti-pm001), [Kaiweets KTI-W01](https://kaiweets.com/products/kti-w01-handheld-thermal-camera), [Hanmatek DOS1102](https://www.aliexpress.com/item/4000768225718.html), [OWON XDM1241](https://www.owon.com.hk/products_owon_4_1%7C2_digits_xdm1000_series_bench-type_digital_multimeter), [Imtex precision scale](https://www.bol.com/nl/nl/p/imtex-precisie-digitale-weegschaal-500-gram-x-001-gram/9300000074911968/) and [UGREEN 240W USB-C to USB-C cable (0.5m)](https://www.amazon.com/UGREEN-Charging-Charger-Compatible-MacBook/dp/B0D1VMZQY4/ref=sr_1_1). Not the most expensive or best test equipment, but will do fine for this project. Non-affiliate links.
 
 ## Atribution
 
