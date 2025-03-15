@@ -10,7 +10,9 @@ I ordered 21 (ultra) cheap USB chargers from AliExpress and will test them to se
 
 ## Status
 
-This project was started on 2025-03-06 and will take some time to complete. Currently the project is in the setup phase so this project is still 🚧 under construction 🚧. I have ordered and received 21 chargers and have taken some 📷 [pictures](https://github.com/RobThree/ProjectCharger/tree/main/images). Basic data has been entered in a 📝 [Google sheet](https://docs.google.com/spreadsheets/d/1MLatioRcDbH1atz-dB_jMyGtM_djYzLRvWk6to6tpT4/edit?usp=sharing) which will also be used to record measurements etc. during this project.
+**2025-03-06**: The project was started today and will take some time to complete. Currently the project is in the setup phase so this project is still 🚧 under construction 🚧. I have ordered and received ~~12~~ 21 chargers and have taken some 📷 [pictures](https://github.com/RobThree/ProjectCharger/tree/main/images). Basic data has been entered in a 📝 [Google sheet](https://docs.google.com/spreadsheets/d/1MLatioRcDbH1atz-dB_jMyGtM_djYzLRvWk6to6tpT4/edit?usp=sharing) (which will also be used to record measurements etc. during this project) for the first 12 chargers.
+
+**2025-03-15**: All chargers have been received, all basic data has been entered into the 📝 [Google sheet](https://docs.google.com/spreadsheets/d/1MLatioRcDbH1atz-dB_jMyGtM_djYzLRvWk6to6tpT4/edit?usp=sharing). A test-protocol, to ensure all chargers undergo the same tests under the same conditions, has been written and is nearly finished. A [viewer to visualize the test results](/measurements/?data=example) has been created. Software to run the tests automated on the DL24-P has been written. After a few finishing touches, testing will commence sometime soon in the upcoming days 🎉 🚀
 
 ## Chargers
 
