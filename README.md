@@ -53,19 +53,24 @@ As a 'control' group (to prove the USB cables are good, the USB tester detects a
 
 The test protocol is currently being determined but will include:
 
-* 🔌 Measuring current draw from outlet
-* 📱 Determining supported USB protocols
-* 📐 Measuring output in several combinations, setups and durations, each test producing:
-    * ⚡ Measurements (Voltage, current, temperature, ...) at:
-        * No load
-        * 75% load
-        * Rated load
-        * Overload (10%, 25%, ...)
-    * ⚖️ Weight
-    * 🌡️ Infrared image
-    * 📉 Voltage / current graphs
-    * 📈 Ripple
-* Teardown pictures
+- [ ] 🔌 Measuring current draw from outlet
+- [x] 📱 Determining supported USB protocols
+- [ ] 📐 Measuring output in several combinations, setups and durations, each test producing:
+    - [ ] ⚡ Measurements (Voltage, current, temperature, ...) at:
+        - [ ] No load for 1 minute
+        - [ ] Rampup over 5 minutes from 0.2A to 150% of rated load
+        - [ ] 50% of load for 5 minutes
+        - [ ] 90% of load for 5 minutes
+        - [ ] Rated load for 30 minutes
+        - [ ] 110% of load for 20 minutes
+        - [ ] 125% of load for 20 minutes
+        - [ ] 150% of load for 20 minutes
+        - [ ] 200% of load for 20 minutes
+    - [x] ⚖️ Weight
+    - [ ] 🌡️ Infrared image
+    - [ ] 📉 Voltage / current graphs
+    - [ ] 📈 Ripple
+- [ ] Teardown pictures
 
 Measurements will be done using an [Atorch DL24-P](http://en.atorch.cn/ProDetail.aspx?ProID=13), [FNIRSI FNB58](https://www.fnirsi.com/products/fnb58), [Geti PM001](https://www.geti.eu/en/products/energy/power-consumption-meters/digital-energy-meter-geti-pm001), [Kaiweets KTI-W01](https://kaiweets.com/products/kti-w01-handheld-thermal-camera), [Hanmatek DOS1102](https://www.aliexpress.com/item/4000768225718.html), [OWON XDM1241](https://www.owon.com.hk/products_owon_4_1%7C2_digits_xdm1000_series_bench-type_digital_multimeter), [Imtex precision scale](https://www.bol.com/nl/nl/p/imtex-precisie-digitale-weegschaal-500-gram-x-001-gram/9300000074911968/) and [UGREEN 240W USB-C to USB-C cable (0.5m)](https://www.amazon.com/UGREEN-Charging-Charger-Compatible-MacBook/dp/B0D1VMZQY4/ref=sr_1_1). Not the most expensive or best test equipment, but will do fine for this project. Non-affiliate links.
 
