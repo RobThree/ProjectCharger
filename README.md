@@ -73,6 +73,8 @@ The test protocol is currently being determined but will include:
 
 Measurements will be done using an [Atorch DL24-P](http://en.atorch.cn/ProDetail.aspx?ProID=13), [FNIRSI FNB58](https://www.fnirsi.com/products/fnb58), [Geti PM001](https://www.geti.eu/en/products/energy/power-consumption-meters/digital-energy-meter-geti-pm001), [Kaiweets KTI-W01](https://kaiweets.com/products/kti-w01-handheld-thermal-camera), [Hanmatek DOS1102](https://www.aliexpress.com/item/4000768225718.html), [OWON XDM1241](https://www.owon.com.hk/products_owon_4_1%7C2_digits_xdm1000_series_bench-type_digital_multimeter), [Imtex precision scale](https://www.bol.com/nl/nl/p/imtex-precisie-digitale-weegschaal-500-gram-x-001-gram/9300000074911968/), [UGREEN 240W USB-C to USB-C cable (0.5m)](https://www.amazon.com/UGREEN-Charging-Charger-Compatible-MacBook/dp/B0D1VMZQY4/ref=sr_1_1), [UGREEN 18W USB-A to USB-C cable (0.5m)](https://www.amazon.com/UGREEN-Braided-Charger-Compatible-Nintendo/dp/B07PP2RB25/ref=sr_1_2) and [UGREEN 18W USB-A to USB-C Adapter](https://www.amazon.com/UGREEN-Adapter-Charger-Connector-AirPods/dp/B0CZDQ8RMX/ref=sr_1_3). Not the most expensive or best test equipment, but will do fine for this project. Non-affiliate links.
 
+The actual, latest, checklist used during each test can be found [hare](https://docs.google.com/document/d/16yQ9Ut7cN_zhgGhayaSNGSPf_FatyJ9KrqO3Fal7ofQ/edit?usp=sharing).
+
 ## A word on software (and a bit of hardware)
 
 I've tried to automate a lot of this project. Mostly because testing these chargers is pretty repetitive, but more importantly I want to make sure every test is as identical as possible.
