@@ -65,7 +65,6 @@ The test protocol is currently being determined but will include:
         - [ ] 110% of load for 20 minutes
         - [ ] 125% of load for 20 minutes
         - [ ] 150% of load for 20 minutes
-        - [ ] 200% of load for 20 minutes
     - [x] ⚖️ Weight
     - [ ] 🌡️ Infrared image
     - [ ] 📉 Voltage / current / ripple / power graphs
