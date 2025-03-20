@@ -77,7 +77,7 @@ Measurements will be done using an [Atorch DL24-P](http://en.atorch.cn/ProDetail
 
 I've tried to automate a lot of this project. Mostly because testing these chargers is pretty repetitive, but more importantly I want to make sure every test is as identical as possible.
 
-Some of my test equipment can be controlled over (USB virtual) serial port or comes with software that can export data to some file format. If this project amounts to nothing then at least I will have made my mark in the test and measurement devices .Net codespace 😅 Most of the software I had to develop for this project is open source and whatever is release is released, as always, as MIT.
+Some of my test equipment can be controlled over (USB virtual) serial port or comes with software that can export data to some file format. If this project amounts to nothing then at least I will have made my mark in the test and measurement devices .Net codespace 😅 Most of the software I had to develop for this project is open source and whatever is released is released, as always, as MIT.
 
 The following application or packages were developed during, or before, this project:
 
