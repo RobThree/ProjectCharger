@@ -55,10 +55,10 @@ The test protocol is currently being determined but will include:
 
 - [ ] 🔌 Measuring current draw from outlet
 - [x] 📱 Determining supported USB protocols
-- [ ] 📐 Measuring output in several combinations, setups and durations, each test producing:
+- [ ] 📐 Measuring output in several combinations, setups (e.g. single / dual load) and durations, each test producing:
     - [ ] ⚡ Measurements (Voltage, current, temperature, ...) at:
         - [ ] No load for 1 minute
-        - [ ] Rampup over 5 minutes from 0.2A to 150% of rated load
+        - [ ] Rampup over 5 minutes from 0.2A to 150% of rated load with 100mA increments
         - [ ] 50% of load for 5 minutes
         - [ ] 90% of load for 5 minutes
         - [ ] Rated load for 30 minutes
@@ -68,11 +68,25 @@ The test protocol is currently being determined but will include:
         - [ ] 200% of load for 20 minutes
     - [x] ⚖️ Weight
     - [ ] 🌡️ Infrared image
-    - [ ] 📉 Voltage / current graphs
-    - [ ] 📈 Ripple
+    - [ ] 📉 Voltage / current / ripple / power graphs
 - [ ] Teardown pictures
 
 Measurements will be done using an [Atorch DL24-P](http://en.atorch.cn/ProDetail.aspx?ProID=13), [FNIRSI FNB58](https://www.fnirsi.com/products/fnb58), [Geti PM001](https://www.geti.eu/en/products/energy/power-consumption-meters/digital-energy-meter-geti-pm001), [Kaiweets KTI-W01](https://kaiweets.com/products/kti-w01-handheld-thermal-camera), [Hanmatek DOS1102](https://www.aliexpress.com/item/4000768225718.html), [OWON XDM1241](https://www.owon.com.hk/products_owon_4_1%7C2_digits_xdm1000_series_bench-type_digital_multimeter), [Imtex precision scale](https://www.bol.com/nl/nl/p/imtex-precisie-digitale-weegschaal-500-gram-x-001-gram/9300000074911968/), [UGREEN 240W USB-C to USB-C cable (0.5m)](https://www.amazon.com/UGREEN-Charging-Charger-Compatible-MacBook/dp/B0D1VMZQY4/ref=sr_1_1), [UGREEN 18W USB-A to USB-C cable (0.5m)](https://www.amazon.com/UGREEN-Braided-Charger-Compatible-Nintendo/dp/B07PP2RB25/ref=sr_1_2) and [UGREEN 18W USB-A to USB-C Adapter](https://www.amazon.com/UGREEN-Adapter-Charger-Connector-AirPods/dp/B0CZDQ8RMX/ref=sr_1_3). Not the most expensive or best test equipment, but will do fine for this project. Non-affiliate links.
+
+## A word on software (and a bit of hardware)
+
+I've tried to automate a lot of this project. Mostly because testing these chargers is pretty repetitive, but more importantly I want to make sure every test is as identical as possible.
+
+Some of my test equipment can be controlled over (USB virtual) serial port or comes with software that can export data to some file format. If this project amounts to nothing then at least I will have made my mark in the .Net measurement codespace 😅 Most of the software I had to develop for this project is open source and whatever is release is released, as always, as MIT.
+
+The following application or packages were developed during, or before, this project:
+
+* [OwonBinfileReader](https://github.com/RobThree/OwonBinfileReader): Reads OWON (and Hanmatek) oscilloscope `.bin` files. I had to reverse engineer the file mostly myself. Information is very scarce on the web on this file format. It turns out my oscilloscope (the Hanmatek DSO1102, which is a rebranded version of the OWON SDS1102 as far as I know) also supports [SCPI](https://en.wikipedia.org/wiki/Standard_Commands_for_Programmable_Instruments). I had done an SCPI implementation a couple of months before for my OWON XDM1241 and I briefly considered implementing a 'client' for the oscilloscope too but that rabbit hole went a little too far off road for this project. I may still do so in the future...
+* [CFNReader](https://github.com/RobThree/CFNReader) - Provides a simple way to read FNIRSI's CFN files (*.cfn) produced by the FNIRSI USB meter tool. I haven't been able to communicate directly with the USB meter yet, but am interested in any information about this. For now, reading a `.cfn` file will have to do.
+* [LibAtorch](https://github.com/RobThree/LibAtorch): A library for reading and commanding Atorch devices. With this package you can control your Atorch load. This is the main one; it controls the electronic load (or: plural in a later stage..) that is hooked up to the chargers to test them at different levels of power demand.
+* **OWON XDM1000 series SCPI client**: This project is not yet publicly available but will be released as FOSS with MIT licence eventually. This contains a fork of [klasyc](https://github.com/klasyc)'s excellent [ScpiNet](https://github.com/klasyc/ScpiNet). This package can be used to control my OWON XDM1241 and read measurements (in this project I use it to read a temperature probe on the <abbr title="Device underr Test">DuT</abbr>).
+* [Custom ambient sensor](https://github.com/RobThree/TemperatureDisplay): this was a simple hardware + software one-off that combines a Wemos D1 Mini with a GXHT30 temperature and humidity sensor and a 0.96" SSD1306 OLED display to do ambient temperature readings. This [monstrosity](https://raw.githubusercontent.com/RobThree/TemperatureDisplay/refs/heads/main/example.jpg) outputs the temperature to the serial port and offers an HTTP endpoint as well so that I could easily integrate ambient temperature readings in my test runner.
+* **Test runner**: This is a very specific and unique mudball of a project that integrates all of the above and does the actual testing. Code for this project is not likely to be released. Because.
 
 ## Atribution
 
