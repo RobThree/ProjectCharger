@@ -18,6 +18,8 @@ I ordered 21 (ultra) cheap USB chargers from AliExpress and will test them to se
 
 <p align="center"><a href="https://www.pcbway.com/"><img src="images/pcbway-logo.svg" width="200"></a></p>
 
+**2025-04-06**: \*sigh* I can't get the second DL24-P to work with my previous implementation. However, all is not lost. All we have to do is reverse engineer the "native" protocol. Which, I'm happy to say, seems to be not _that_ hard. I'm expecting this to take a few days at most. Up until now I had implemented the ["PX100" protocol](https://github.com/misdoro/Electronic_load_px100/blob/be917afdaf9b361c7a3b5b8457e706a63e4c65c8/protocol_PX-100_2_70.md) but that appears to only work on the older model. I am currently well on my way to supporting the "native" protocol though. And that should be the last "major hurdle". I'll be back!
+
 ## Chargers
 
 The following chargers are in this test:
