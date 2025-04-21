@@ -27,6 +27,8 @@ Today the second DL24-P came in. Unfortunately this did present a [small issue](
 ### 2025-04-21
 **Let's goooo!** 🚀 I [contacted Atorch](http://en.atorch.cn/Contact.aspx?ClassID=5), honestly not even expecting a reply, but after a little back-and-forth I got them to send me a firmware update that seems to support the "PX100" protocol. Details can be found [here](https://github.com/RobThree/LibAtorch/issues/1#issuecomment-2817383225). I have asked Atorch politely if I can share the firmware file online and am waiting for their reply. Keep watching [this issue](https://github.com/RobThree/LibAtorch/issues/1#issuecomment-2817383225) for updates on that. I will be testing the firmware soon and then there's just one hurdle left: getting the data files to 'align' and put them into a nice interactive graph. But once I have my testsetup working (reliably) I will start doing the tests and dump the data in the repository. Aligning the data, making the graphs is a tomorrow problem. Any day now! 🎉🥳
 
+**Update**: We got [the green light](https://github.com/RobThree/LibAtorch/issues/1#issuecomment-2818287076)!
+
 ## Chargers
 
 The following chargers are in this test:
